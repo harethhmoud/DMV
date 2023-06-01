@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if today_appointments %}
+    <ul>
+    {% for appointment in today_appointments %}
+        <li><a href="{% url 'detail' appointment.id %}">{{ appointment.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No appointments are available.</p>
+{% endif %}
+</body>
+</html>

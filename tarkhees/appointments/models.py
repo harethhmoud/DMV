@@ -17,7 +17,6 @@ class Appointment(models.Model):
     ]
     name = models.CharField(max_length=200)
     date = models.DateTimeField('appointment date')
-    time = models.DateTimeField('appointment time')
     status = models.CharField(
         max_length=2,
         choices=STATUS_CHOICES,
@@ -25,4 +24,4 @@ class Appointment(models.Model):
     )
 
     def __str__(self):
-        return self.name + ", " + str(self.date) + ", " + str(self.time) + ", " + self.status
+        return self.name + ", " + str(self.date) + ", " + self.status
