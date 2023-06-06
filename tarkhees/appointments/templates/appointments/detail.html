@@ -6,6 +6,7 @@
 </head>
 <body>
 <h1>{{ appointment.name }}</h1>
+<h1>{{ appointment.status}}</h1>
 <ul>
 {% for option in appointment.choice_set.all %}
     <li>{{ option.choice_text }}</li>

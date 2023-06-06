@@ -55,7 +55,7 @@ ROOT_URLCONF = 'tarkhees.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["tarkhees/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
