@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>{{ appointment.name }}</h1>
-<h1>{{ appointment.status}}</h1>
-<ul>
-{% for option in appointment.choice_set.all %}
-    <li>{{ option.choice_text }}</li>
-{% endfor %}
-</ul>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{ appointment.name }}</h1>
+    <h1>{{ appointment.status}}</h1>
+    <ul>
+    {% for option in appointment.choice_set.all %}
+        <li>{{ option.choice_text }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}

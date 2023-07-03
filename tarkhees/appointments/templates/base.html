@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Driver and Vehicle License Department</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add Tempus Dominus CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.1.2/build/css/tempusdominus-bootstrap-4.min.css" />
+</head>
+<body>
+    <!-- Your site's layout here -->
+    {% block content %}
+    <!-- This block will be replaced by each child template's content block -->
+    {% endblock %}
+       <!-- Add jQuery, moment.js, Tempus Dominus JS and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.1.2/build/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function () {
+        $('#id_date').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+    });
+</script>
+</body>
+</html>

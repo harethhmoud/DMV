@@ -1,8 +1,9 @@
 from django.http import HttpResponse
 from .models import Appointment
 from django.utils import timezone
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
+from .forms import AppointmentForm
 
 
 def index(request):
@@ -34,3 +35,14 @@ def modify(request, appointment_id):
 
 def delete(request, appointment_id):
     return HttpResponse("You're deleting appointment %s." % appointment_id)
+
+
+def create(request):
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = AppointmentForm()
+    return render(request, 'appointments/create.html', {'form': AppointmentForm})

@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'appointments.apps.AppointmentsConfig'
+    'appointments.apps.AppointmentsConfig',
+    'tempus_dominus',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'tarkhees.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["tarkhees/templates"],
+        'DIRS': ["tarkhees/appointments/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

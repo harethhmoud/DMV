@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% if all_appointments %}
-    <ul>
-    {% for appointment in all_appointments %}
-        <li><a href="{% url 'detail' appointment.id %}">{{ appointment.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No appointments are available.</p>
-{% endif %}
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    {% if all_appointments %}
+        <ul>
+        {% for appointment in all_appointments %}
+            <li><a href="{% url 'detail' appointment.id %}">{{ appointment.name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No appointments are available.</p>
+    {% endif %}
+{% endblock %}
