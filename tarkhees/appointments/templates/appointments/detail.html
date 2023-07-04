@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>{{ appointment.name }}</h1>
+    <h1>{{ appointment.date }}</h1>
     <h1>{{ appointment.status}}</h1>
+    <h1>{{ appointment.phone_number}}</h1>
+        <a href="{% url 'edit' appointment.id %}">Edit</a>
+        <a href="{% url 'delete' appointment.id %}">Delete</a>
     <ul>
     {% for option in appointment.choice_set.all %}
         <li>{{ option.choice_text }}</li>

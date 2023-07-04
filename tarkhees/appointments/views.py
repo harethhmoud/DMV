@@ -29,12 +29,24 @@ def detail(request, appointment_id):
     return render(request, "appointments/detail.html", {'appointment': appointment})
 
 
-def modify(request, appointment_id):
-    return HttpResponse("You're modifying appointment %s." % appointment_id)
+def edit(request, appointment_id):
+    appointment = get_object_or_404(Appointment, pk=appointment_id)
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST, instance=appointment)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = AppointmentForm(instance=appointment)
+    return render(request, 'appointments/edit.html', {'form': form})
 
 
 def delete(request, appointment_id):
-    return HttpResponse("You're deleting appointment %s." % appointment_id)
+    appointment = get_object_or_404(Appointment, pk=appointment_id)
+    if request.method == 'POST':
+        appointment.delete()
+        return redirect('index')
+    return render(request, 'appointments/delete.html', {'appointment': appointment})
 
 
 def create(request):
@@ -43,6 +55,8 @@ def create(request):
         if form.is_valid():
             form.save()
             return redirect('index')
+        else:
+            print(form.errors)
     else:
         form = AppointmentForm()
-    return render(request, 'appointments/create.html', {'form': AppointmentForm})
+    return render(request, 'appointments/create.html', {'form': form})
