@@ -38,3 +38,27 @@ class Appointment(models.Model):
     def __str__(self):
         return self.name + ", " + str(self.date) + ", " + self.status + ", " + self.location.__str__() + ", " + str(
             self.phone_number)
+
+
+class Employee(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE) # OneToOneField means each employee can have one user,
+    # and each user can have one employee.
+    employee_id = models.CharField(max_length=20)
+    phone_number = models.CharField(max_length=10)
+    national_id = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.user.username + ", " + self.employee_id + ", " + self.phone_number + ", " + self.national_id
+
+
+
+
+
+
+
+
+
+
+
+
+

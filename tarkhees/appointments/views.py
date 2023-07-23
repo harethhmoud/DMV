@@ -3,7 +3,7 @@ from .models import Appointment
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
-from .forms import AppointmentForm
+from .forms import AppointmentForm, EmployeeCreateForm
 
 
 def index(request):
@@ -60,3 +60,16 @@ def create(request):
     else:
         form = AppointmentForm()
     return render(request, 'appointments/create.html', {'form': form})
+
+
+def register_employee(request):
+    if request.method == 'POST': # If the form is being submitted...
+        form = EmployeeCreateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            print(form.errors)
+    else: # If the form is being accessed for the first time
+        form = EmployeeCreateForm()
+    return render(request, 'registration/register_employee.html', {'form': form})
