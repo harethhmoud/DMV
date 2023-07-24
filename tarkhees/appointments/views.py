@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
 from .forms import AppointmentForm, EmployeeCreateForm
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -29,6 +30,7 @@ def detail(request, appointment_id):
     return render(request, "appointments/detail.html", {'appointment': appointment})
 
 
+@login_required
 def edit(request, appointment_id):
     appointment = get_object_or_404(Appointment, pk=appointment_id)
     if request.method == 'POST':
@@ -41,6 +43,7 @@ def edit(request, appointment_id):
     return render(request, 'appointments/edit.html', {'form': form})
 
 
+@login_required
 def delete(request, appointment_id):
     appointment = get_object_or_404(Appointment, pk=appointment_id)
     if request.method == 'POST':
@@ -49,6 +52,7 @@ def delete(request, appointment_id):
     return render(request, 'appointments/delete.html', {'appointment': appointment})
 
 
+@login_required
 def create(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
@@ -62,14 +66,15 @@ def create(request):
     return render(request, 'appointments/create.html', {'form': form})
 
 
+@login_required
 def register_employee(request):
-    if request.method == 'POST': # If the form is being submitted...
+    if request.method == 'POST':  # If the form is being submitted...
         form = EmployeeCreateForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('index')
         else:
             print(form.errors)
-    else: # If the form is being accessed for the first time
+    else:  # If the form is being accessed for the first time
         form = EmployeeCreateForm()
     return render(request, 'registration/register_employee.html', {'form': form})

@@ -31,13 +31,14 @@ class Appointment(models.Model):
     )
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
     phone_number = models.CharField(max_length=10, null=True)
+    email = models.EmailField(max_length=254, blank=True, null=True)
 
     # This sets up a many-to-one relationship, meaning each appointment can be associated with one location,
     # but each location can have multiple appointments. Second argument deletes all appointments if loc is deleted.
 
     def __str__(self):
         return self.name + ", " + str(self.date) + ", " + self.status + ", " + self.location.__str__() + ", " + str(
-            self.phone_number)
+            self.phone_number) + ", " + self.email
 
 
 class Employee(models.Model):
