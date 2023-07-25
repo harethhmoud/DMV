@@ -127,3 +127,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'today-appointments'
+
+CELERY_BROKER_URL = 'amqp://localhost'
+

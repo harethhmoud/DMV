@@ -5,6 +5,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
 from .forms import AppointmentForm, EmployeeCreateForm
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from datetime import timedelta
+from .tasks import send_reminder_email_task
 
 
 def index(request):
@@ -37,6 +40,14 @@ def edit(request, appointment_id):
         form = AppointmentForm(request.POST, instance=appointment)
         if form.is_valid():
             form.save()
+            if appointment.email:
+                date_str = appointment.date.strftime('%Y-%m-%d %H:%M:%S')
+                send_mail(
+                    'Appointment Update',
+                    'Your appointment has been updated to ' + date_str + '.',  # This is the message.
+                    [appointment.email],
+                    fail_silently=False,
+                )
             return redirect('index')
     else:
         form = AppointmentForm(instance=appointment)
@@ -47,6 +58,8 @@ def edit(request, appointment_id):
 def delete(request, appointment_id):
     appointment = get_object_or_404(Appointment, pk=appointment_id)
     if request.method == 'POST':
+        if appointment.email:
+            send_mail('Appointment Update','Your appointment has been cancelled.', [appointment.email], fail_silently=False,)
         appointment.delete()
         return redirect('index')
     return render(request, 'appointments/delete.html', {'appointment': appointment})
@@ -57,7 +70,14 @@ def create(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
         if form.is_valid():
-            form.save()
+            appointment = form.save()
+            if appointment.email:
+                date_str = appointment.date.strftime('%Y-%m-%d %H:%M:%S')
+                send_mail('Appointment Update','Your appointment has been scheduled to ' + date_str + ".",
+                          "melaniegranger62@gmail.com",
+                          [appointment.email], fail_silently=False)
+            reminder = appointment.date - timedelta(hours=1)
+            send_reminder_email_task.apply_async((appointment.id,), eta=reminder)
             return redirect('index')
         else:
             print(form.errors)

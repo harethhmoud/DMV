@@ -1,0 +1,36 @@
+ 
+ -------------- celery@airdrop-me.home v5.3.1 (emerald-rush)
+--- ***** ----- 
+-- ******* ---- macOS-13.4.1-arm64-arm-64bit 2023-07-25 10:43:11
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         tarkhees:0x1062bf280
+- ** ---------- .> transport:   amqp://guest:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 8 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . appointments.tasks.send_reminder_email
+  . appointments.tasks.send_reminder_email_task
+
+[2023-07-25 10:43:11,377: WARNING/MainProcess] /Users/harethhmoud/Desktop/Desktop - Hareths MacBook Pro/Everything/Personal/Projects/DMV/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-07-25 10:43:11,399: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2023-07-25 10:43:11,400: WARNING/MainProcess] /Users/harethhmoud/Desktop/Desktop - Hareths MacBook Pro/Everything/Personal/Projects/DMV/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-07-25 10:43:11,406: INFO/MainProcess] mingle: searching for neighbors
+[2023-07-25 10:43:12,422: INFO/MainProcess] mingle: all alone
+[2023-07-25 10:43:12,435: INFO/MainProcess] celery@airdrop-me.home ready.
