@@ -59,7 +59,8 @@ def delete(request, appointment_id):
     appointment = get_object_or_404(Appointment, pk=appointment_id)
     if request.method == 'POST':
         if appointment.email:
-            send_mail('Appointment Update','Your appointment has been cancelled.', [appointment.email], fail_silently=False,)
+            send_mail('Appointment Update', 'Your appointment has been cancelled.', [appointment.email],
+                      fail_silently=False, )
         appointment.delete()
         return redirect('index')
     return render(request, 'appointments/delete.html', {'appointment': appointment})
@@ -73,7 +74,7 @@ def create(request):
             appointment = form.save()
             if appointment.email:
                 date_str = appointment.date.strftime('%Y-%m-%d %H:%M:%S')
-                send_mail('Appointment Update','Your appointment has been scheduled to ' + date_str + ".",
+                send_mail('Appointment Update', 'Your appointment has been scheduled to ' + date_str + ".",
                           "melaniegranger62@gmail.com",
                           [appointment.email], fail_silently=False)
             reminder = appointment.date - timedelta(hours=1)

@@ -1,10 +1,10 @@
  
  -------------- celery@airdrop-me.home v5.3.1 (emerald-rush)
 --- ***** ----- 
--- ******* ---- macOS-13.4.1-arm64-arm-64bit 2023-07-25 10:43:11
+-- ******* ---- macOS-13.4.1-arm64-arm-64bit 2023-07-30 11:12:41
 - *** --- * --- 
 - ** ---------- [config]
-- ** ---------- .> app:         tarkhees:0x1062bf280
+- ** ---------- .> app:         tarkhees:0x1038c6280
 - ** ---------- .> transport:   amqp://guest:**@localhost:5672//
 - ** ---------- .> results:     disabled://
 - *** --- * --- .> concurrency: 8 (prefork)
@@ -18,19 +18,43 @@
   . appointments.tasks.send_reminder_email
   . appointments.tasks.send_reminder_email_task
 
-[2023-07-25 10:43:11,377: WARNING/MainProcess] /Users/harethhmoud/Desktop/Desktop - Hareths MacBook Pro/Everything/Personal/Projects/DMV/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+[2023-07-30 11:12:41,602: WARNING/MainProcess] /Users/harethhmoud/Desktop/Desktop - Hareths MacBook Pro/Everything/Personal/Projects/DMV/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
 whether broker connection retries are made during startup in Celery 6.0 and above.
 If you wish to retain the existing behavior for retrying connections on startup,
 you should set broker_connection_retry_on_startup to True.
   warnings.warn(
 
-[2023-07-25 10:43:11,399: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
-[2023-07-25 10:43:11,400: WARNING/MainProcess] /Users/harethhmoud/Desktop/Desktop - Hareths MacBook Pro/Everything/Personal/Projects/DMV/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+[2023-07-30 11:12:41,604: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
+Trying again in 2.00 seconds... (1/100)
+
+[2023-07-30 11:12:43,616: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
+Trying again in 4.00 seconds... (2/100)
+
+[2023-07-30 11:12:47,631: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
+Trying again in 6.00 seconds... (3/100)
+
+[2023-07-30 11:12:53,656: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
+Trying again in 8.00 seconds... (4/100)
+
+[2023-07-30 11:13:01,681: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
+Trying again in 10.00 seconds... (5/100)
+
+[2023-07-30 11:13:11,719: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
+Trying again in 12.00 seconds... (6/100)
+
+[2023-07-30 11:13:23,778: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
+Trying again in 14.00 seconds... (7/100)
+
+[2023-07-30 11:13:37,826: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
+Trying again in 16.00 seconds... (8/100)
+
+[2023-07-30 11:13:53,878: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2023-07-30 11:13:53,879: WARNING/MainProcess] /Users/harethhmoud/Desktop/Desktop - Hareths MacBook Pro/Everything/Personal/Projects/DMV/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
 whether broker connection retries are made during startup in Celery 6.0 and above.
 If you wish to retain the existing behavior for retrying connections on startup,
 you should set broker_connection_retry_on_startup to True.
   warnings.warn(
 
-[2023-07-25 10:43:11,406: INFO/MainProcess] mingle: searching for neighbors
-[2023-07-25 10:43:12,422: INFO/MainProcess] mingle: all alone
-[2023-07-25 10:43:12,435: INFO/MainProcess] celery@airdrop-me.home ready.
+[2023-07-30 11:13:53,890: INFO/MainProcess] mingle: searching for neighbors
+[2023-07-30 11:13:54,911: INFO/MainProcess] mingle: all alone
+[2023-07-30 11:13:54,918: INFO/MainProcess] celery@airdrop-me.home ready.
