@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
 from .forms import AppointmentForm, EmployeeCreateForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.core.mail import send_mail
 from datetime import timedelta
 from .tasks import send_reminder_email_task
@@ -34,6 +34,7 @@ def detail(request, appointment_id):
 
 
 @login_required
+@permission_required('appointments.change_appointment')
 def edit(request, appointment_id):
     appointment = get_object_or_404(Appointment, pk=appointment_id)
     if request.method == 'POST':
@@ -55,6 +56,7 @@ def edit(request, appointment_id):
 
 
 @login_required
+@permission_required('appointments.delete_appointment')
 def delete(request, appointment_id):
     appointment = get_object_or_404(Appointment, pk=appointment_id)
     if request.method == 'POST':
@@ -67,6 +69,7 @@ def delete(request, appointment_id):
 
 
 @login_required
+@permission_required('appointments.add_appointment')
 def create(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
