@@ -61,10 +61,9 @@ def delete(request, appointment_id):
     appointment = get_object_or_404(Appointment, pk=appointment_id)
     if request.method == 'POST':
         if appointment.email:
-            send_mail('Appointment Update', 'Your appointment has been cancelled.', [appointment.email],
-                      fail_silently=False, )
+            send_mail('Appointment Update', 'Your appointment has been cancelled.', None, [appointment.email], fail_silently=False,)
         appointment.delete()
-        return redirect('index')
+        return redirect('today-appointments')
     return render(request, 'appointments/delete.html', {'appointment': appointment})
 
 
@@ -82,7 +81,7 @@ def create(request):
                           [appointment.email], fail_silently=False)
             reminder = appointment.date - timedelta(hours=1)
             send_reminder_email_task.apply_async((appointment.id,), eta=reminder)
-            return redirect('index')
+            return redirect('today-appointments')
         else:
             print(form.errors)
     else:

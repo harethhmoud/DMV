@@ -1,9 +1,25 @@
 {% extends "base.html" %}
+{% load bootstrap4 %}
+
 {% block content %}
-    <h1>Create a new appointment</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Create</button>
-    </form>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">Create Appointment</div>
+          <div class="card-body">
+            <form method="post" class="form">
+              {% csrf_token %}
+              {% bootstrap_form form %}
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                  Create
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

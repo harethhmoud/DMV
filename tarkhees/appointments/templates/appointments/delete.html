@@ -1,8 +1,20 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <h1>Are you sure you want to delete {{ appointment.name }}?</h1>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Yes, delete</button>
-    </form>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Confirm Delete</h5>
+            <p class="card-text">Are you sure you want to delete this appointment?</p>
+            <form method="post">{% csrf_token %}
+              <button class="btn btn-danger" type="submit">Yes, delete</button>
+            </form>
+            <a href="{% url 'appointments:today-appointments' %}" class="btn btn-light">No, take me back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

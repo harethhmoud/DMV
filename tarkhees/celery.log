@@ -58,3 +58,14 @@ you should set broker_connection_retry_on_startup to True.
 [2023-07-30 11:13:53,890: INFO/MainProcess] mingle: searching for neighbors
 [2023-07-30 11:13:54,911: INFO/MainProcess] mingle: all alone
 [2023-07-30 11:13:54,918: INFO/MainProcess] celery@airdrop-me.home ready.
+
+SIGHUP not supported: Restarting with SIGHUP is unstable on this platform!
+[2023-07-30 11:57:22,100: ERROR/MainProcess] Process 'ForkPoolWorker-8' pid:3075 exited with 'exitcode 70'
+[2023-07-30 11:57:22,113: ERROR/MainProcess] Process 'ForkPoolWorker-7' pid:3074 exited with 'exitcode 70'
+[2023-07-30 11:57:22,200: ERROR/MainProcess] Process 'ForkPoolWorker-1' pid:3068 exited with 'exitcode 70'
+[2023-07-30 11:57:22,243: ERROR/MainProcess] Process 'ForkPoolWorker-6' pid:3073 exited with 'exitcode 70'
+[2023-07-30 11:57:22,254: ERROR/MainProcess] Process 'ForkPoolWorker-5' pid:3072 exited with 'exitcode 70'
+[2023-07-30 11:57:22,265: ERROR/MainProcess] Process 'ForkPoolWorker-4' pid:3071 exited with 'exitcode 70'
+[2023-07-30 11:57:22,276: ERROR/MainProcess] Process 'ForkPoolWorker-3' pid:3070 exited with 'exitcode 70'
+[2023-07-30 11:57:22,287: ERROR/MainProcess] Process 'ForkPoolWorker-2' pid:3069 exited with 'exitcode 70'
+[2023-07-31 10:46:19,406: INFO/MainProcess] Task appointments.tasks.send_reminder_email_task[1af34dbe-76f0-4550-b313-0fe862dd27f2] received

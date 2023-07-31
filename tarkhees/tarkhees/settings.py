@@ -11,6 +11,17 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import json
+import os
+# Get the current directory of settings.py
+current_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Go up two directories to reach the root directory
+config_path = os.path.join(current_directory, '..', '..', 'config.json')
+
+# Open the config file
+with open(config_path) as config_file:
+    config = json.load(config_file)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appointments.apps.AppointmentsConfig',
     'tempus_dominus',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -128,5 +140,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'today-appointments'
 
-CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config['EMAIL_ADDRESS']
+EMAIL_HOST_PASSWORD = config['EMAIL_PASSWORD']
