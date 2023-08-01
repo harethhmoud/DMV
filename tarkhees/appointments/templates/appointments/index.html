@@ -3,7 +3,7 @@
     {% if all_appointments %}
         <ul>
         {% for appointment in all_appointments %}
-            <li><a href="{% url 'detail' appointment.id %}">{{ appointment.name }}</a></li>
+            <li><a href="{% url 'appointments:detail' appointment.id %}">{{ appointment.name }}</a></li>
         {% endfor %}
         </ul>
     {% else %}

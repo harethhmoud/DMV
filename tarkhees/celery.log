@@ -1,10 +1,12 @@
+/Users/harethhmoud/Desktop/Desktop - Hareths MacBook Pro/Everything/Personal/Projects/DMV/venv/lib/python3.9/site-packages/urllib3/__init__.py:34: NotOpenSSLWarning: urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
  
  -------------- celery@airdrop-me.home v5.3.1 (emerald-rush)
 --- ***** ----- 
--- ******* ---- macOS-13.4.1-arm64-arm-64bit 2023-07-30 11:12:41
+-- ******* ---- macOS-13.4.1-arm64-arm-64bit 2023-08-01 12:24:46
 - *** --- * --- 
 - ** ---------- [config]
-- ** ---------- .> app:         tarkhees:0x1038c6280
+- ** ---------- .> app:         tarkhees:0x103f616a0
 - ** ---------- .> transport:   amqp://guest:**@localhost:5672//
 - ** ---------- .> results:     disabled://
 - *** --- * --- .> concurrency: 8 (prefork)
@@ -17,55 +19,26 @@
 [tasks]
   . appointments.tasks.send_reminder_email
   . appointments.tasks.send_reminder_email_task
+  . appointments.tasks.send_reminder_sms
+  . appointments.tasks.send_reminder_sms_task
 
-[2023-07-30 11:12:41,602: WARNING/MainProcess] /Users/harethhmoud/Desktop/Desktop - Hareths MacBook Pro/Everything/Personal/Projects/DMV/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+[2023-08-01 12:24:46,880: WARNING/MainProcess] /Users/harethhmoud/Desktop/Desktop - Hareths MacBook Pro/Everything/Personal/Projects/DMV/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
 whether broker connection retries are made during startup in Celery 6.0 and above.
 If you wish to retain the existing behavior for retrying connections on startup,
 you should set broker_connection_retry_on_startup to True.
   warnings.warn(
 
-[2023-07-30 11:12:41,604: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
-Trying again in 2.00 seconds... (1/100)
-
-[2023-07-30 11:12:43,616: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
-Trying again in 4.00 seconds... (2/100)
-
-[2023-07-30 11:12:47,631: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
-Trying again in 6.00 seconds... (3/100)
-
-[2023-07-30 11:12:53,656: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
-Trying again in 8.00 seconds... (4/100)
-
-[2023-07-30 11:13:01,681: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
-Trying again in 10.00 seconds... (5/100)
-
-[2023-07-30 11:13:11,719: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
-Trying again in 12.00 seconds... (6/100)
-
-[2023-07-30 11:13:23,778: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
-Trying again in 14.00 seconds... (7/100)
-
-[2023-07-30 11:13:37,826: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 61] Connection refused.
-Trying again in 16.00 seconds... (8/100)
-
-[2023-07-30 11:13:53,878: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
-[2023-07-30 11:13:53,879: WARNING/MainProcess] /Users/harethhmoud/Desktop/Desktop - Hareths MacBook Pro/Everything/Personal/Projects/DMV/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+[2023-08-01 12:24:46,986: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2023-08-01 12:24:46,987: WARNING/MainProcess] /Users/harethhmoud/Desktop/Desktop - Hareths MacBook Pro/Everything/Personal/Projects/DMV/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
 whether broker connection retries are made during startup in Celery 6.0 and above.
 If you wish to retain the existing behavior for retrying connections on startup,
 you should set broker_connection_retry_on_startup to True.
   warnings.warn(
 
-[2023-07-30 11:13:53,890: INFO/MainProcess] mingle: searching for neighbors
-[2023-07-30 11:13:54,911: INFO/MainProcess] mingle: all alone
-[2023-07-30 11:13:54,918: INFO/MainProcess] celery@airdrop-me.home ready.
-
-SIGHUP not supported: Restarting with SIGHUP is unstable on this platform!
-[2023-07-30 11:57:22,100: ERROR/MainProcess] Process 'ForkPoolWorker-8' pid:3075 exited with 'exitcode 70'
-[2023-07-30 11:57:22,113: ERROR/MainProcess] Process 'ForkPoolWorker-7' pid:3074 exited with 'exitcode 70'
-[2023-07-30 11:57:22,200: ERROR/MainProcess] Process 'ForkPoolWorker-1' pid:3068 exited with 'exitcode 70'
-[2023-07-30 11:57:22,243: ERROR/MainProcess] Process 'ForkPoolWorker-6' pid:3073 exited with 'exitcode 70'
-[2023-07-30 11:57:22,254: ERROR/MainProcess] Process 'ForkPoolWorker-5' pid:3072 exited with 'exitcode 70'
-[2023-07-30 11:57:22,265: ERROR/MainProcess] Process 'ForkPoolWorker-4' pid:3071 exited with 'exitcode 70'
-[2023-07-30 11:57:22,276: ERROR/MainProcess] Process 'ForkPoolWorker-3' pid:3070 exited with 'exitcode 70'
-[2023-07-30 11:57:22,287: ERROR/MainProcess] Process 'ForkPoolWorker-2' pid:3069 exited with 'exitcode 70'
-[2023-07-31 10:46:19,406: INFO/MainProcess] Task appointments.tasks.send_reminder_email_task[1af34dbe-76f0-4550-b313-0fe862dd27f2] received
+[2023-08-01 12:24:46,994: INFO/MainProcess] mingle: searching for neighbors
+[2023-08-01 12:24:48,019: INFO/MainProcess] mingle: all alone
+[2023-08-01 12:24:48,042: INFO/MainProcess] celery@airdrop-me.home ready.
+[2023-08-01 12:24:48,044: INFO/MainProcess] Task appointments.tasks.send_reminder_email_task[1af34dbe-76f0-4550-b313-0fe862dd27f2] received
+[2023-08-01 12:24:48,045: INFO/MainProcess] Task appointments.tasks.send_reminder_email_task[71a4145e-839b-498c-a9a8-efd24b595988] received
+[2023-08-01 12:25:19,367: INFO/MainProcess] Task appointments.tasks.send_reminder_email_task[dad3be11-8742-4342-accd-08c96bdf0521] received
+[2023-08-01 12:26:35,466: INFO/MainProcess] Task appointments.tasks.send_reminder_email_task[06380368-536e-41e2-8f30-c35f685e0b4f] received

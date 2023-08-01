@@ -45,11 +45,12 @@ def edit(request, appointment_id):
                 date_str = appointment.date.strftime('%Y-%m-%d %H:%M:%S')
                 send_mail(
                     'Appointment Update',
-                    'Your appointment has been updated to ' + date_str + '.',  # This is the message.
+                    'Your appointment has been updated to ' + date_str + '.',
+                    None,
                     [appointment.email],
                     fail_silently=False,
                 )
-            return redirect('index')
+            return redirect('appointments:today-appointments')
     else:
         form = AppointmentForm(instance=appointment)
     return render(request, 'appointments/edit.html', {'form': form})
@@ -63,7 +64,7 @@ def delete(request, appointment_id):
         if appointment.email:
             send_mail('Appointment Update', 'Your appointment has been cancelled.', None, [appointment.email], fail_silently=False,)
         appointment.delete()
-        return redirect('today-appointments')
+        return redirect('appointments:today-appointments')
     return render(request, 'appointments/delete.html', {'appointment': appointment})
 
 
@@ -81,7 +82,7 @@ def create(request):
                           [appointment.email], fail_silently=False)
             reminder = appointment.date - timedelta(hours=1)
             send_reminder_email_task.apply_async((appointment.id,), eta=reminder)
-            return redirect('today-appointments')
+            return redirect('appointments:today-appointments')
         else:
             print(form.errors)
     else:

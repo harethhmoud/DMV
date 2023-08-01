@@ -1,7 +1,7 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 from . import views
-from .views import index, today, register_employee
+from .views import index, today, register_employee, detail
 
 app_name = 'appointments'
 
