@@ -96,7 +96,7 @@ def register_employee(request):
         form = EmployeeCreateForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('appointments:today-appointments')
         else:
             print(form.errors)
     else:  # If the form is being accessed for the first time

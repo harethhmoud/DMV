@@ -42,3 +42,4 @@ you should set broker_connection_retry_on_startup to True.
 [2023-08-01 12:24:48,045: INFO/MainProcess] Task appointments.tasks.send_reminder_email_task[71a4145e-839b-498c-a9a8-efd24b595988] received
 [2023-08-01 12:25:19,367: INFO/MainProcess] Task appointments.tasks.send_reminder_email_task[dad3be11-8742-4342-accd-08c96bdf0521] received
 [2023-08-01 12:26:35,466: INFO/MainProcess] Task appointments.tasks.send_reminder_email_task[06380368-536e-41e2-8f30-c35f685e0b4f] received
+[2023-08-01 12:50:19,484: INFO/MainProcess] Task appointments.tasks.send_reminder_email_task[3f764942-7138-4f77-99a1-213d3c6ed84a] received

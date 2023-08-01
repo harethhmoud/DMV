@@ -6,9 +6,9 @@ from .views import index, today, register_employee, detail
 app_name = 'appointments'
 
 urlpatterns = [
-    path("", views.index, name='index'),
+    path("", views.today, name='today-appointments'),
     path('<int:appointment_id>/detail/', views.detail, name='detail'),
-    path('today/', today, name='today-appointments'),
+    # path('today/', today, name='today-appointments'),
     path('create/', views.create, name='create'),
     path('edit/<int:appointment_id>/', views.edit, name='edit'),
     path('delete/<int:appointment_id>/', views.delete, name='delete'),

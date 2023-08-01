@@ -4,6 +4,7 @@
 {% block content %}
   <div class="container py-5">
     <h1 class="my-4 text-center text-primary">Today's Appointments</h1>
+    <a href="{% url 'appointments:create' %}" class="btn btn-primary">Create New Appointment</a>
     {% if today_appointments %}
       <table class="table table-hover table-dark rounded-lg">
         <thead class="thead-light">
@@ -27,7 +28,7 @@
       </table>
     {% else %}
       <div class="alert alert-warning" role="alert">
-        <h4 class="alert-heading">There are no appointments today.</p>
+        <h4 class="alert-heading">There are no appointments today.</h4>
       </div>
     {% endif %}
   </div>
