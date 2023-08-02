@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
 from .forms import AppointmentForm, EmployeeCreateForm
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 from django.core.mail import send_mail
 from datetime import timedelta
 from .tasks import send_reminder_email_task
@@ -90,7 +90,12 @@ def create(request):
     return render(request, 'appointments/create.html', {'form': form})
 
 
+def admin_check(user):
+    return user.is_superuser
+
+
 @login_required
+@user_passes_test(admin_check)
 def register_employee(request):
     if request.method == 'POST':  # If the form is being submitted...
         form = EmployeeCreateForm(request.POST)

@@ -23,7 +23,7 @@ class AppointmentForm(forms.ModelForm):
 class EmployeeCreateForm(UserCreationForm):
     email = forms.EmailField(required=True)
     phone_number = forms.CharField(required=True)
-    national_id = forms.CharField(required=True)
+    national_id = forms.CharField(label="National ID", max_length=100, required=True)
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
 
