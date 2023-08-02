@@ -6,9 +6,24 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- Add Tempus Dominus CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.1.2/build/css/tempusdominus-bootstrap-4.min.css" />
+    <style>
+        .login-button {
+            float: right;
+        }
+    </style>
 </head>
 <body>
     <!-- Your site's layout here -->
+    <nav class = "navbar navbar-light bg-light">
+        <a class = "navbar-brand" href = "{% url 'appointments:today-appointments' %}">Driver and Vehicle License Department</a>
+        <div class = "login-button">
+            {% if user.is_authenticated %}
+                <a href="{% url 'appointments:logout' %}">Logout</a>
+            {% else %}
+                <a href = "{% url 'appointments:login' %}" class = "btn btn-outline-primary">Login</a>
+            {% endif %}
+        </div>
+    </nav>
     {% block content %}
     <!-- This block will be replaced by each child template's content block -->
     {% endblock %}

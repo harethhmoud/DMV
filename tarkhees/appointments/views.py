@@ -17,7 +17,7 @@ def index(request):
     }
     return render(request, "appointments/index.html", context)
 
-
+@login_required
 def today(request):
     to_day = timezone.localdate()
     today_appointments = Appointment.objects.filter(date__date=to_day).order_by('date')

@@ -12,7 +12,7 @@ urlpatterns = [
     path('create/', views.create, name='create'),
     path('edit/<int:appointment_id>/', views.edit, name='edit'),
     path('delete/<int:appointment_id>/', views.delete, name='delete'),
-    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
-    path('logged_out/', LoginView.as_view(template_name='logged_out.html'), name='logged_out'),
+    path('login/', LoginView.as_view(template_name='login.html', next_page='appointments:today-appointments'), name='login'),
+    path('logout/', LogoutView.as_view(next_page='appointments:today-appointments'), name='logout'),
     path('registration/register_employee/', register_employee, name='register-employee'),
 ]

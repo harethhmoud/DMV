@@ -148,3 +148,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config['EMAIL_ADDRESS']
 EMAIL_HOST_PASSWORD = config['EMAIL_PASSWORD']
+LOGIN_URL = 'appointments:login'
+LOGOUT_URL = 'appointments:logout'
