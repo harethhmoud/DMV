@@ -17,6 +17,7 @@ def index(request):
     }
     return render(request, "appointments/index.html", context)
 
+
 @login_required
 def today(request):
     to_day = timezone.localdate()
