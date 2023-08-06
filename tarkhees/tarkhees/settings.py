@@ -150,3 +150,6 @@ EMAIL_HOST_USER = config['EMAIL_ADDRESS']
 EMAIL_HOST_PASSWORD = config['EMAIL_PASSWORD']
 LOGIN_URL = 'appointments:login'
 LOGOUT_URL = 'appointments:logout'
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]

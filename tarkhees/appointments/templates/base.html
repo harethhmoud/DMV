@@ -1,44 +1,67 @@
 <!DOCTYPE html>
-<html>
+{% load static %}
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver and Vehicle License Department</title>
-    <!-- Add Bootstrap CSS -->
+    <link rel="icon" href="{% static 'images/dvld.png' %}">
+
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Add Tempus Dominus CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.1.2/build/css/tempusdominus-bootstrap-4.min.css" />
+
+    <!-- Custom styles -->
     <style>
-        .login-button {
-            float: right;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fa;
+        }
+        .navbar {
+            background-color: #2c3e50;
+            padding: 1rem 3rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .navbar-light .navbar-nav .nav-link, .navbar-light .navbar-brand {
+            color: #ecf0f1;
+        }
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: #bdc3c7;
+        }
+        .content {
+            padding: 3rem 5%;
         }
     </style>
 </head>
 <body>
-    <!-- Your site's layout here -->
-    <nav class = "navbar navbar-light bg-light">
-        <a class = "navbar-brand" href = "{% url 'appointments:today-appointments' %}">Driver and Vehicle License Department</a>
-        <div class = "login-button">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'images/dvld.png' %}" alt="Logo">
+            Driver and Vehicle License Department
+        </a>
+        <div class="ml-auto">
             {% if user.is_authenticated %}
-                <a href="{% url 'appointments:logout' %}">Logout</a>
+                <a class="nav-link" href="{% url 'appointments:logout' %}">Logout</a>
             {% else %}
-                <a href = "{% url 'appointments:login' %}" class = "btn btn-outline-primary">Login</a>
+                <a class="nav-link" href="{% url 'appointments:login' %}">Login</a>
             {% endif %}
         </div>
     </nav>
-    {% block content %}
-    <!-- This block will be replaced by each child template's content block -->
-    {% endblock %}
-       <!-- Add jQuery, moment.js, Tempus Dominus JS and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.1.2/build/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap and necessary plugins -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    $(function () {
-        $('#id_date').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm'  // change this line
-        });
-    });
-</script>
-</script>
 </body>
 </html>
